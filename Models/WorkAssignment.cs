@@ -13,7 +13,7 @@ namespace TimesheetBackend.Models
         }
 
         public int IdWorkAssingment { get; set; }
-        public int? IdCustomer { get; set; }
+        public int IdCustomer { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime? DeadLine { get; set; }
@@ -26,7 +26,7 @@ namespace TimesheetBackend.Models
         public DateTime? DeletedAt { get; set; }
         public bool? Active { get; set; }
 
-        public virtual Customer IdWorkAssingmentNavigation { get; set; }
+        public virtual Customer IdCustomerNavigation { get; set; }
         public virtual ICollection<Timesheet> Timesheets { get; set; }
     }
 }

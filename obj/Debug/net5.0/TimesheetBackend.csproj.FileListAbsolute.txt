@@ -53,4 +53,3 @@ C:\Users\hannu\source\repos\TimesheetBackend\obj\Debug\net5.0\TimesheetBackend.d
 C:\Users\hannu\source\repos\TimesheetBackend\obj\Debug\net5.0\ref\TimesheetBackend.dll
 C:\Users\hannu\source\repos\TimesheetBackend\obj\Debug\net5.0\TimesheetBackend.pdb
 C:\Users\hannu\source\repos\TimesheetBackend\obj\Debug\net5.0\TimesheetBackend.genruntimeconfig.cache
-C:\Users\hannu\source\repos\TimesheetBackend\obj\Debug\net5.0\TimesheetBackend.csprojAssemblyReference.cache

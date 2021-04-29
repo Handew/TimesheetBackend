@@ -13,7 +13,6 @@ namespace TimesheetBackend.Models
         }
 
         public int IdEmployee { get; set; }
-        public int? IdContractor { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }

@@ -10,6 +10,7 @@ namespace TimesheetBackend.Models
         public Customer()
         {
             Timesheets = new HashSet<Timesheet>();
+            WorkAssignments = new HashSet<WorkAssignment>();
         }
 
         public int IdCustomer { get; set; }
@@ -22,7 +23,7 @@ namespace TimesheetBackend.Models
         public DateTime? DeleteAt { get; set; }
         public bool? Active { get; set; }
 
-        public virtual WorkAssignment WorkAssignment { get; set; }
         public virtual ICollection<Timesheet> Timesheets { get; set; }
+        public virtual ICollection<WorkAssignment> WorkAssignments { get; set; }
     }
 }

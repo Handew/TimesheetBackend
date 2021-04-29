@@ -27,7 +27,7 @@ namespace TimesheetBackend.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=tcp:careeria.database.windows.net,1433;Initial Catalog=tuntidb;Persist Security Info=False;User ID=Handew;Password=Careeria2021;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                optionsBuilder.UseSqlServer("Server=careeria.database.windows.net,1433;Database=tuntidb;User ID = Handew; Password=Careeria2021;");
             }
         }
 
@@ -69,8 +69,6 @@ namespace TimesheetBackend.Models
                 entity.Property(e => e.EmailAddress).HasMaxLength(50);
 
                 entity.Property(e => e.FirstName).HasMaxLength(50);
-
-                entity.Property(e => e.IdContractor).HasColumnName("Id_Contractor");
 
                 entity.Property(e => e.LastModifiedAt).HasColumnType("datetime");
 
@@ -131,9 +129,7 @@ namespace TimesheetBackend.Models
             {
                 entity.HasKey(e => e.IdWorkAssingment);
 
-                entity.Property(e => e.IdWorkAssingment)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("Id_WorkAssingment");
+                entity.Property(e => e.IdWorkAssingment).HasColumnName("Id_WorkAssingment");
 
                 entity.Property(e => e.CompletedAt).HasColumnType("datetime");
 
@@ -153,9 +149,9 @@ namespace TimesheetBackend.Models
 
                 entity.Property(e => e.WorkStartedAt).HasColumnType("datetime");
 
-                entity.HasOne(d => d.IdWorkAssingmentNavigation)
-                    .WithOne(p => p.WorkAssignment)
-                    .HasForeignKey<WorkAssignment>(d => d.IdWorkAssingment)
+                entity.HasOne(d => d.IdCustomerNavigation)
+                    .WithMany(p => p.WorkAssignments)
+                    .HasForeignKey(d => d.IdCustomer)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_WorkAssignments_Customers");
             });
